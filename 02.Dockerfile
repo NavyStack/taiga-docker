@@ -1,4 +1,4 @@
-FROM node:18-bookworm as build-stage
+FROM node:23-bookworm as build-stage
 
 ENV PNPM_HOME="/pnpm" \
   PATH="$PNPM_HOME:$PATH" \
