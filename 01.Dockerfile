@@ -1,7 +1,7 @@
-FROM python:3.11-bookworm AS git
+FROM python:3.14-bookworm AS git
 RUN git clone --recurse-submodules -j8 --depth 1 https://github.com/taigaio/taiga.git /taiga-base/
 
-FROM python:3.11-bookworm AS env-builder
+FROM python:3.14-bookworm AS env-builder
 
 ARG TARGETARCH
 
@@ -40,7 +40,7 @@ RUN find . -type f \( -name '__pycache__' -o -name '*.pyc' -o -name '*.pyo' \) -
 RUN rm -rf /taiga/requirements.txt
 RUN rm -rf /taiga/apps/taiga/requirements/
 
-FROM python:3.11-slim-bookworm AS final
+FROM python:3.14-slim-bookworm AS final
 LABEL maintainer="navystack@askfront.com"
 
 WORKDIR /taiga
